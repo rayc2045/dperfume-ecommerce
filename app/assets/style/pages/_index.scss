@@ -1,0 +1,63 @@
+.banner {
+  background-image: url('https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/perfume-week6/index1.jpg');
+  min-height: calc(100vh - 56px);
+
+}
+
+.btn-outline-white {
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+}
+
+.btn-outline-black {
+  border: 2px solid #000;
+  border-radius: 30px;
+}
+
+.shop-btn {
+  padding: 12px;
+   &:hover {
+    background-color: rgba(#ffffff, .5);
+    color: rgb(63, 63, 63);
+  }
+}
+
+.plan-btn {
+  padding: 10px 0;
+  &:hover {
+    background-color: rgba(#b6b6b6, .5);
+  }
+}
+
+.card-cover {
+  position: relative;
+}
+
+.card-cover::before {
+  content: 'Sold out';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-banner {
+  background-image: url('https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/perfume-week6/index10.jpg');
+  height: 600px;
+  padding-top: 312px;
+}
+
+.subscribe-input {
+  border: 2px solid $primary;
+  border-radius: 4px;
+}
+
+.subscribe-submit {
+  border-radius: 4px;
+}

@@ -1,0 +1,62 @@
+.bg-cover {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.pic-introduce {
+  padding-top: 50%;
+  @include mobile {
+    padding-top: 100%;
+  }
+}
+
+.pic-introduce-lg {
+  padding-top: 100%;
+}
+
+.pic-card-lg {
+  padding-top: 145%;
+  @include mobile {
+    padding-top: 100%;
+  }
+}
+
+.material-icons {
+  vertical-align: bottom;
+}
+
+.text-black {
+  color: #000 !important;
+}
+
+.font {
+  &-xs {
+    font-size: 12px;
+  }
+  &-sm {
+    font-size: 14px;
+  }
+  &-de {
+    font-size: 16px;
+  }
+  &-md {
+    font-size: 20px;
+  }
+  &-lg {
+    font-size: 24px;
+  }
+  &-xl {
+    font-size: 28px;
+  }
+  &-xxl {
+    font-size: 32px;
+  }
+  &-xxxl {
+    font-size: 40px;
+  }
+}
+
+
+
+

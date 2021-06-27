@@ -1,0 +1,21 @@
+.page-item.active .page-link {
+  color: #AC8A46 !important;
+  text-decoration: underline; 
+  background: #ffffff;
+}
+
+.page-link:hover {
+  color :#AC8A46 !important;
+  background: #ffffff;
+}
+
+.card-item:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.cart-title {
+  @include mobile {
+    font-size: 20px;
+  }
+}
