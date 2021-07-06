@@ -1,26 +1,34 @@
-/* bootstrap */
-@import "../bootstrap/functions";
-@import "./helpers/variables";
-@import "../bootstrap/mixins";
-@import "../bootstrap/bootstrap.scss";
+@import'../style/helpers/variables';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/variables';
+@import '../../../node_modules/bootstrap/scss/mixins';
+
+@import '../../../node_modules/bootstrap/scss/reboot';
+@import 'base/base';
+@import '../../../node_modules/bootstrap/scss/grid';
+@import '../../../node_modules/bootstrap/scss/utilities';
+@import '../../../node_modules/bootstrap/scss/transitions';
+@import'../../../node_modules/bootstrap/scss/images';
+@import '../../../node_modules/bootstrap/scss/forms';
+@import '../../../node_modules/bootstrap/scss/modal';
+@import '../../../node_modules/bootstrap/scss/close';
+@import '../../../node_modules/bootstrap/scss/buttons';
+@import '../../../node_modules/bootstrap/scss/custom-forms';
+@import '../../../node_modules/bootstrap/scss/tooltip';
+
+@import 'helpers/sizing';
+@import 'helpers/text';
+@import 'helpers/filter';
+@import 'helpers/hover';
+@import 'helpers/position';
+@import 'helpers/background';
+@import 'helpers/texthide';
+
+@import 'component/navbar';
+@import 'component/card';
+@import 'component/pagination';
+@import 'component/form';
 
 
-/* mixins */
-@import "./mixins/mixins";
 
-/* base */
-@import "./base/base";
 
-/* utilities */
-@import "./utilities/utilities";
-@import "./utilities/position";
-
-/* layout */
-@import "./layout/navbar";
-@import "./layout/footer";
-
-/* pages */
-@import "./pages/index";
-@import "./pages/products";
-@import "./pages/product-description";
-@import "./pages/member";

@@ -7,7 +7,7 @@ let envOptions = {
   default: {
     env: 'dev',
   },
-  copyFile: {
+  conyFile: {
     src: [
       `${srcPath}/**/*`,
       `!${srcPath}/assets/js/**/*.js`,
@@ -46,6 +46,20 @@ let envOptions = {
       `${nodePath}/jquery/dist/**/jquery.min.js`,
     ],
     concat: 'vendors.js',
+    path: `${distPath}/assets/js`,
+  },
+  bootstrap: {
+    src: [
+      `${nodePath}/bootstrap/dist/**/bootstrap.min.js`,
+    ],
+    concat: 'bootstrap.js',
+    path: `${distPath}/assets/js`,
+  },
+  bundle: {
+    src: [
+      `${nodePath}/bootstrap/dist/**/bootstrap.bundle.js`,
+    ],
+    concat: 'bundle.js',
     path: `${distPath}/assets/js`,
   },
   img: {

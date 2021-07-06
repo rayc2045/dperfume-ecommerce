@@ -1,0 +1,14 @@
+.pagination{
+    display: flex;
+    justify-content: center;
+}
+.page__link{
+    font-size: 20px;
+    color:$black;
+    padding: 0 10px;
+}
+.page__link-active{
+    color:$secondary;
+    text-decoration: underline;
+  
+}

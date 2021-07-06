@@ -1,64 +1,48 @@
 ---
 title: 登入
+login: Log in
 layout: ./app/layout.ejs
 engine: ejs
-login: Log in
-current: login
+current: index
 ---
 
-<header class="bg-primary py-3 mb-md-13 mb-5 d-none d-md-flex">
-  <div class="container">
-    <ul class="nav">
-      <li class="nav-item">
-        <a href="" class="text-white font-md mr-3">CHANEL</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="text-white font-md mr-3">Jo Malone</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="text-white font-md mr-3">Curology</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="text-white font-md mr-3">Dior</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="text-white font-md mr-3">Chloe</a>
-      </li>
-      <li class="nav-item">
-        <a href="" class="text-white font-md">ZARA</a>
-      </li>
+<div class="bg-primary mb-11 mb-md-15">
+    <ul class="container d-none d-md-flex">
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">CHANEL</a></li>
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">Jo Malone</a></li>
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">Curology</a></li>
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">Dior</a></li>
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">Chloe</a></li>
+        <li><a class="text-white text-lg hover__bg--secondary p-4" href="">ZARA</a></li>
     </ul>
-  </div>
-</header>
+</div>
+<div class="container  mb-md-15">
+    <div class="row align-items-center">
+        <div class=" col-md-8 mb-8 mb-md-0">
+            <img class="img-fluid" src="assets/images/login.jpg" alt=" 登入">
+        </div>
+        <div class=" col-md-4 mb-16 mb-md-0">
+            <h3 class="text-3xl mb-4">Log in</h3>
+            <form class="js-login-form">
+                <div class="form-group">
+                    <label for="account">帳號</label>
+                    <input type="email" class="form-control js-account" id="account" name="account"
+                        aria-describedby="emailHelp" placeholder="email@example.com" required>
 
-<div class="container">
-  <div class="row mb-13 align-items-center">
-    <div class="col-md-8 bg-cover mb-md-0 mb-4"
-      style="background-image: url('https://raw.githubusercontent.com/hexschool/webLayoutTraining1st/master/perfume-week6/login1.jpg'); padding-top: 66%;">
+                </div>
+                <div class="form-group mb-10">
+                    <label for="Password">密碼</label>
+                    <input type="password" name="password" class="form-control js-password" id="Password"
+                        placeholder="Password" required>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="">忘記密碼</a>
+                    <div class="d-flex">
+                        <button class="btn border-primary text-primary hover__bg--primary rounded mr-3">註冊</button>
+                        <button type="submit" class="btn btn-primary rounded js-login-click">登入</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="col-md-4 mb-13 mb-md-0">
-      <h3>Log in</h3>
-      <form class="was-validated">
-        <div class="form-group">
-          <label for="account">帳號</label>
-          <input type="email" class="form-control js-account is-invalid" id="account" name="account"
-            aria-describedby="emailHelp" placeholder="email@example.com" required="">
-
-        </div>
-        <div class="form-group mb-4">
-          <label for="password">密碼</label>
-          <input type="password" class="form-control is-invalid" id="password" placeholder="Password" required>
-        </div>
-        <div class="d-flex justify-content-between align-items-center">
-          <a href="" class="d-inline">忘記密碼</a>
-          <ul class="d-flex">
-            <li><button type="submit" class="btn btn-primary text-primary bg-white mr-2">註冊</button></li>
-            <li>
-              <button type="submit" class="btn btn-primary" onclick="location.href='member.html'">登入</button>
-            </li>
-          </ul>
-        </div>
-      </form>
-    </div>
-  </div>
 </div>

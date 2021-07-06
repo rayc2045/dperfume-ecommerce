@@ -10,13 +10,13 @@ let options = minimist(process.argv.slice(2), envOptions);
 console.log(`Current mode：${options.env}`);
 
 function copyFile() {
-  return gulp.src(envOptions.copyFile.src)
-  .pipe(gulp.dest(envOptions.copyFile.path))
-  .pipe(
-    browserSync.reload({
-      stream: true,
-    }),
-  );
+  return gulp.src(envOptions.conyFile.src)
+    .pipe(gulp.dest(envOptions.conyFile.path))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      }),
+    );
 }
 
 function layoutHTML() {
@@ -74,7 +74,16 @@ function vendorsJs() {
     .pipe($.concat(envOptions.vendors.concat))
     .pipe(gulp.dest(envOptions.vendors.path));
 }
-
+function bootstrapJs() {
+  return gulp.src(envOptions.bootstrap.src)
+    .pipe($.concat(envOptions.bootstrap.concat))
+    .pipe(gulp.dest(envOptions.bootstrap.path));
+}
+function bundleJS() {
+  return gulp.src(envOptions.bundle.src)
+    .pipe($.concat(envOptions.bundle.concat))
+    .pipe(gulp.dest(envOptions.bundle.path));
+}
 
 function browser() {
   browserSync.init({
@@ -87,9 +96,9 @@ function browser() {
 
 function clean() {
   return gulp.src(envOptions.clean.src, {
-      read: false,
-      allowEmpty: true,
-    })
+    read: false,
+    allowEmpty: true,
+  })
     .pipe($.clean());
 }
 
@@ -112,4 +121,4 @@ exports.clean = clean;
 
 exports.build = gulp.series(clean, copyFile, layoutHTML, sass, babel, vendorsJs);
 
-exports.default = gulp.series(clean, copyFile, layoutHTML, sass, babel, vendorsJs, gulp.parallel(browser, watch));
+exports.default = gulp.series(clean, copyFile, layoutHTML, sass, babel, vendorsJs, bootstrapJs, bundleJS, gulp.parallel(browser, watch));

@@ -1,41 +1,59 @@
-html {
-  overflow-y: scroll;
+:focus{
+    outline: 0;
+}
+a{
+    display: block;
+    transition:all 0.5s;
+    &:hover{
+        text-decoration: none;
+    }
 }
 
-body {
-  font-family: $font-family-base;
-  width: 100%;
-  overflow: hidden;
-  font-size: 16px;
+ul,ol,li{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+.material-icons{
+    vertical-align: bottom;
 }
 
-:root {
-  overflow-y: auto;
-  overflow-x: hidden;
+input:focus::placeholder {
+    color: transparent;
+  }
+  button{
+      &:focus{
+          outline: 0;
+      }
+  }
+
+  input[type="checkbox"]{
+    -webkit-appearance: none;
+   
+    background:#fff;
+    border:#999 solid 1px;
+    border-radius: 3px;
+    min-height: 15px;
+    min-width: 15px;
+}
+input[type="checkbox"]:checked {
+    background: $primary;
+    border-color: $primary
+}
+input[type=checkbox]:checked::after{
+    content: '';
+    top: 3px;
+    left: 3px;
+    position: absolute;
+    background: transparent;
+    border: #fff solid 2px;
+    border-top: none;
+    border-right: none;
+    height: 5px;
+    width: 8px;
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg); 
+    transform: rotate(-45deg);
 }
 
-:root body {
-  position: absolute;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-	text-decoration: none !important;
-  display: block;
-} 
-
-.h1, .h2, .h3, .h4, .h5, .h6, p {
-  margin-bottom: 0;
-}
-.h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: normal;
-}

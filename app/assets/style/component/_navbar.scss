@@ -1,0 +1,255 @@
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
+  padding: $navbar-padding-y $navbar-padding-x;
+
+  // Because flex properties aren't inherited, we need to redeclare these first
+  // few properties so that content nested within behave properly.
+  %container-flex-properties {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container,
+  .container-fluid {
+    @extend %container-flex-properties;
+  }
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    > .container#{breakpoint-infix($breakpoint, $container-max-widths)} {
+      @extend %container-flex-properties;
+    }
+  }
+}
+
+.navbar-brand {
+  display: inline-block;
+  padding-top: $navbar-brand-padding-y;
+  padding-bottom: $navbar-brand-padding-y;
+  margin-right: $navbar-padding-x;
+  @include font-size($navbar-brand-font-size);
+  line-height: inherit;
+  
+
+  @include hover-focus() {
+    text-decoration: none;
+  }
+}
+
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column; // cannot use `inherit` to get the `.navbar`s value
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  .nav-link {
+
+    padding-right: 0;
+    padding-left: 0;
+    background-color: $dark;
+    position: relative;
+    line-height: 1.2;
+    color:#fff;
+    border-bottom:1px solid #fff;
+    &:hover{
+        color:#fff;
+        box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+    }
+    @include media-breakpoint-up(md) {
+        background-color: #fff;
+        color:$gray-500;
+        border-bottom:0px;
+        &::after{
+            content: '';
+            width: 0;
+            height: 2px;
+            position: absolute;
+            display: block;
+           
+            background-color: $secondary;
+            transition: all 0.5s;
+        
+        }
+        &:hover{
+          color:$primary;
+          box-shadow:none;
+            &::after{           
+                width: 100%;
+               
+            }
+        }
+      }
+  }
+
+  .dropdown-menu {
+    position: static;
+    float: none;
+  }
+}
+
+
+
+
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+
+// Button for toggling the navbar when in its collapsed state
+.navbar-toggler {
+  width: 32px;
+  height: 28px;
+  position: relative;
+  margin:0;
+  transform: rotate(0deg);
+  cursor: pointer;
+  @include border-radius($navbar-toggler-border-radius);
+
+  @include hover-focus() {
+    text-decoration: none;
+  }
+}
+
+.navbar-toggler span {
+  display: block;
+  position: absolute;
+  height: 5px;
+  width: 100%;
+  background: #8d8d8d;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+.navbar-toggler span:nth-child(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.navbar-toggler span:nth-child(2) {
+  top: 10px;
+
+  transform-origin: left center;
+}
+
+.navbar-toggler span:nth-child(3) {
+  top:20px;
+  transform-origin: left center;
+}
+
+.navbar-toggler.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: -5px;
+  left: 8px;
+}
+
+.navbar-toggler.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.navbar-toggler.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 17px;
+  left: 8px;
+}
+
+.navbar-expand {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    $next: breakpoint-next($breakpoint, $grid-breakpoints);
+    $infix: breakpoint-infix($next, $grid-breakpoints);
+
+    &#{$infix} {
+      @include media-breakpoint-down($breakpoint) {
+        %container-navbar-expand-#{$breakpoint} {
+          padding-right: 0;
+          padding-left: 0;
+        }
+
+        > .container,
+        > .container-fluid {
+          @extend %container-navbar-expand-#{$breakpoint};
+        }
+
+        @each $size, $container-max-width in $container-max-widths {
+          > .container#{breakpoint-infix($size, $container-max-widths)} {
+            @extend %container-navbar-expand-#{$breakpoint};
+          }
+        }
+      }
+
+      @include media-breakpoint-up($next) {
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+
+        .navbar-nav {
+          flex-direction: row;
+
+          .dropdown-menu {
+            position: absolute;
+          }
+
+          .nav-link {
+            padding-right: $navbar-nav-link-padding-x;
+            padding-left: $navbar-nav-link-padding-x;
+          }
+        }
+
+        // For nesting containers, have to redeclare for alignment purposes
+        %container-nesting-#{$breakpoint} {
+          flex-wrap: nowrap;
+        }
+
+        > .container,
+        > .container-fluid {
+          @extend %container-nesting-#{$breakpoint};
+        }
+
+        @each $size, $container-max-width in $container-max-widths {
+          > .container#{breakpoint-infix($size, $container-max-widths)} {
+            @extend %container-nesting-#{$breakpoint};
+          }
+        }
+
+        .navbar-collapse {
+          display: flex !important; // stylelint-disable-line declaration-no-important
+
+          // Changes flex-bases to auto because of an IE10 bug
+          flex-basis: auto;
+        }
+
+        .navbar-toggler {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.mb__cart{
+  color:$gray-500;
+  position: relative;
+  &::after{
+      content: '3';
+      @include size(16px,13px);
+      background-color: $primary;
+      display: block;
+      position: absolute;
+      color:#fff;
+      top: 0;
+      border-radius: 7px;
+      font-size: 12px;
+      text-align: center; 
+      line-height: 1;
+      left: 15px;
+  }
+}

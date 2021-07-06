@@ -1,0 +1,56 @@
+a.hover__bg--secondary{
+    &:hover{
+        background-color: $secondary;
+    }
+}
+a.hover__bg--primary{
+    &:hover{
+        background-color: $primary;
+        color:#fff !important;
+    }
+}
+a.hover__bg--white{
+ 
+    &:hover{
+        background: #FFFFFF4D;
+        box-shadow: inset 0px 0px 5px rgba(0,0,0,0.2);
+    }
+}
+a.hover__bg--black{
+    &:hover{
+        background:$black;
+        color:#fff !important;
+        box-shadow: 0px 0px 15px rgba(0,0,0,0.7);
+    }
+}
+
+a.hover__color--secondary{
+    &:hover{
+       
+        color:$secondary !important;
+    }
+}
+a.hover__scale--small{
+    &:hover{
+       transform: scale(0.9);
+    }
+}
+
+a.hover__opacity{
+    &:hover{
+        opacity: 0.6;
+    }
+}
+.hover__shadow{
+    transition: all 0.5s;
+    &:hover{
+    padding: 3px;
+    box-shadow: 2px 2px 5px rgba($primary, 0.5);
+    }
+    @include media-breakpoint-up(md) {
+        &:hover{
+            padding: 5px;
+         
+            }
+    }
+}
